@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crème de la Crêpe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="restaurant-header">
+        <h1>CREME DE LA CREPE</h1>
+    </div>
+  
+  <div class="Images1" align="center">
+
+    <img src="./restaurant1.jpg" alt="restaurant1" width="400">
+    <img src="./restaurant2.jpg" alt="restaurant2" width="400">
+
+    
+  </div>
+
+  <div class="Images2" align="center">
+
+    <img src="./restaurant3.jpg" alt="restaurant3" width="400">
+    <img src="./restaurant4.png" alt="restaurant4" width="400">
+    
+  </div>
+
+    <!-- Analytics Section -->
+    <h2>Analytics</h2>
+    <p>Peak Time: 9-12 AM and 7-10 PM</p>
+    <p>Most Popular Item: <span id="popular-item">None</span></p>
+
+    <!-- Personalized Table Booking Section -->
+    <h2>Personalized Table Booking</h2>
+    <form id="table-booking-form">
+        <label for="table-number">Choose Table Number:</label>
+        <select id="table-number">
+            <option value="1">Window Side</option>
+            <option value="2">Quiet Area</option>
+            <option value="3">Display Tables</option>
+            <option value="4">Front Side</option>
+            <option value="5">Couple Table</option>
+        </select>
+        
+        <label for="booking-time">Select Time Slot:</label>
+        <input type="time" id="booking-time" required>
+
+        <button type="button" id="book-table-btn">Book Table</button>
+    </form>
+    <p id="table-booking-notification"></p>
+
+    <!-- Virtual Queue Section -->
+    <h2>Join Virtual Queue</h2>
+    <button id="virtual-queue-btn">Join Queue</button>
+    <p id="queue-notification"></p>
+
+    <!-- Menu Section -->
+    <h2>Menu</h2>
+    <div id="menu-items">
+
+        <!-- Paneer Tikka -->
+        <div class="menu-item">
+            <img src="https://www.cookwithmanali.com/wp-content/uploads/2015/07/Restaurant-Style-Recipe-Paneer-Tikka.jpg" alt="Paneer Tikka" />
+            <h3>Paneer Tikka</h3>
+            <p>Price: ₹250</p>
+            <label for="quantity-paneer">Quantity:</label>
+            <input type="number" id="quantity-paneer" name="quantity-paneer" min="1" max="10" value="1">
+            <button onclick="addToOrder('Paneer Tikka', 250, 'quantity-paneer')">Add to PreOrder</button>
+        </div>
+
+        <!-- Margherita Pizza -->
+        <div class="menu-item">
+            <img src="https://cdn.shopify.com/s/files/1/0274/9503/9079/files/20220211142754-margherita-9920_5a73220e-4a1a-4d33-b38f-26e98e3cd986.jpg?v=1723650067?w=1024" alt="Margherita Pizza">
+            <h3>Margherita Pizza</h3>
+            <p>Price: ₹400</p>
+            <label for="pizza-qty">Quantity:</label>
+            <input type="number" id="pizza-qty" value="1" min="1">
+            <button onclick="addToOrder('Margherita Pizza', 400, 'pizza-qty')">Add to PreOrder</button>
+        </div>
+
+        <!-- Veggie Burger -->
+        <div class="menu-item">
+            <img src="https://www.noracooks.com/wp-content/uploads/2023/04/veggie-burgers-6-1024x1536.jpg" alt="Veggie Burger">
+            <h3>Veggie Burger</h3>
+            <p>Price: ₹250</p>
+            <label for="burger-qty">Quantity:</label>
+            <input type="number" id="burger-qty" value="1" min="1">
+            <button onclick="addToOrder('Veggie Burger', 250, 'burger-qty')">Add to PreOrder</button>
+        </div>
+
+        <!-- Ice Cream Sundae -->
+        <div class="menu-item">
+            <img src="https://www.keep-calm-and-eat-ice-cream.com/wp-content/uploads/2022/08/Ice-cream-sundae-hero-10.jpg" alt="Ice Cream Sundae">
+            <h3>Ice Cream Sundae</h3>
+            <p>Price: ₹150</p>
+            <label for="sundae-qty">Quantity:</label>
+            <input type="number" id="sundae-qty" value="1" min="1">
+            <button onclick="addToOrder('Ice Cream Sundae', 150, 'sundae-qty')">Add to PreOrder</button>
+        </div>
+
+        <!-- Caesar Salad -->
+        <div class="menu-item">
+            <img src="https://www.grocery.coop/sites/default/files/NCG_Dennis_Becker_Classic_Caesar_Salad_715_x_477.jpg" alt="Caesar Salad">
+            <h3>Caesar Salad</h3>
+            <p>Price: ₹200</p>
+            <label for="caesar-qty">Quantity:</label>
+            <input type="number" id="caesar-qty" value="1" min="1">
+            <button onclick="addToOrder('Caesar Salad', 200, 'caesar-qty')">Add to PreOrder</button>
+        </div>
+
+        <!-- Chicken Wrap -->
+        <div class="menu-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTYg-5q-lVR2uLj-tNCk7iIKOvBIFlFkuSeXWlP2XLTUN6WX9ebNXdLj1cTA2czTT6MuE&usqp=CAU" alt="Chicken Wrap">
+            <h3>Chicken Wrap</h3>
+            <p>Price: ₹300</p>
+            <label for="wrap-qty">Quantity:</label>
+            <input type="number" id="wrap-qty" value="1" min="1">
+            <button onclick="addToOrder('Chicken Wrap', 300, 'wrap-qty')">Add to PreOrder</button>
+        </div>
+
+        <!-- French Fries -->
+        <div class="menu-item">
+            <img src="https://images.themodernproper.com/billowy-turkey/production/posts/2022/Homemade-French-Fries_8.jpg?w=1200&q=82&auto=format&fit=crop&dm=1662474181&s=577d686ad285c29c256e35d3ce9e437b" alt="French Fries">
+            <h3>French Fries</h3>
+            <p>Price: ₹120</p>
+            <label for="fries-qty">Quantity:</label>
+            <input type="number" id="fries-qty" value="1" min="1">
+            <button onclick="addToOrder('French Fries', 120, 'fries-qty')">Add to PreOrder</button>
+        </div>
+
+    </div>
+
+    <!-- Order Summary Section -->
+    <h2>Your Order</h2>
+    <ul id="order-summary"></ul>
+    <p>Total Amount: ₹<span id="total-amount">0</span></p>
+
+    <!-- UPI Payment Section -->
+    <h2>Proceed to UPI Payment</h2>
+    <button id="upi-btn">Pay via UPI</button>
+    <p id="upi-status"></p>
+
+    <script src="script.js"></script>
+</body>
+</html> 
